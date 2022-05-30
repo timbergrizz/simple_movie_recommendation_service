@@ -11,7 +11,7 @@ router.get("/:age", (req, res) => {
             from movie join
             (select movieId, avg(ratingScore) as avgRate, count()
             from ratings join
-            (select userId from user where age >= 10 and age < 20)
+            (select userId from user where age >= ${age} and age < ${age + 10})
             as occupation
             on occupation.userId = ratings.userId
             group by movieId having count() > 5) as ratings
