@@ -10,7 +10,7 @@ router.get("/:user_id", (req, res)=> {
     }
     getConnection((conn) =>{
         const user_id = req.params.user_id;
-        conn.query(`select * from user where user_id = ${user_id}`).then((result) => {
+        conn.query(`select * from user where userId = ${user_id}`).then((result) => {
             console.log(result);
             res.send(result);
         }).catch(err =>{

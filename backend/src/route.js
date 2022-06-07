@@ -5,7 +5,7 @@ const user_info = require("./routes/user.js")
 
 router.use("/rank/occupation", occupation);
 router.use("/rank/age", age);
-router.use("/user/");
+router.use("/user/", user_info);
 
 
 router.use("/", (req, res) =>{
