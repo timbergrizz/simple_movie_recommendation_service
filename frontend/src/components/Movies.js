@@ -12,7 +12,7 @@ function Movie(props){
                 <div>
                     <h4> {elem.movieTitle}  </h4>
                     <p>
-                        {type} Rate : {elem.avgRate}
+                        {type} Rate : {type === "Average" ? elem.avgRate : elem.expRate}
                     </p>
                 </div>
             )

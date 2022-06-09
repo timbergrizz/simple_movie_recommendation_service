@@ -10,6 +10,7 @@ class Main extends React.Component {
         isSubmit : false,
         movieByAge : [],
         movieByOccp : [],
+        movieRecommend: [],
         isRanking : true
     }
 
@@ -31,12 +32,14 @@ class Main extends React.Component {
 
             const { data : movieByAge } = await axios.get(`http://localhost:3003/rank/age/${age}`);
             const { data : movieByOccp } = await axios.get(`http://localhost:3003/rank/occupation/${userData.occupation}`);
+            const { data : movieRecommend } = await axios.get(`http://localhost:3003/recommend/${this.state.userId}`);
             console.log(movieByAge);
             console.log(movieByOccp);
 
             this.setState({
                 movieByAge,
                 movieByOccp,
+                movieRecommend,
                 isLoading : false
             }, () =>{
                 console.log(this.state);
@@ -89,7 +92,7 @@ class Main extends React.Component {
                         <h1>
                             Movie Recommendation
                         </h1>
-                        <Movie list={this.state.movieByOccp} type="Expected" />
+                        <Movie list={this.state.movieRecommend} type="Expected" />
                     </div>
                 }
 

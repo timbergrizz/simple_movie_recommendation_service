@@ -10,16 +10,16 @@ router.get("/:user_id", (req, res) =>{
                 const result = response.data;
 
                 let str = "("
-                for(let i = 0; i < 12; ++i) {
+                for(let i = 0; i < 9; ++i) {
                     str = str.concat(result[i].movieId, ", ");
                 }
 
-                str = str.concat(result[12].movieId, ")");
+                str = str.concat(result[9].movieId, ")");
 
                 conn.query(`select * from movie where movieId in ${str}`)
                     .then((result_list) => {
                         let result_data = []
-                        for(let i = 0; i <= 12; ++i){
+                        for(let i = 0; i <= 9; ++i){
                             const cur = {
                                 "movieId": result_list[i].movieId,
                                 "movieTitle" : result_list[i].movieTitle,
