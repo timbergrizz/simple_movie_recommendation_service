@@ -5,8 +5,10 @@ from surprise.model_selection import cross_validate
 from flask import Flask
 from flask import request
 from flask import jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 movie_rating = Dataset.load_builtin("ml-100k")
 
 trainset, testset = train_test_split(movie_rating, test_size=0.2)

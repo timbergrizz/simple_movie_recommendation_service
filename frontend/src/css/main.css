@@ -1,0 +1,27 @@
+.main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 5%;
+}
+
+.movieList {
+  width: 80%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 0.05fr 1fr;
+  gap: 10px;
+}
+
+.buttons {
+  grid-row: 1;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-self: center;
+}
+
+.movieRank {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
