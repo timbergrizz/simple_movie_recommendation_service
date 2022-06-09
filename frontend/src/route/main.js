@@ -6,6 +6,7 @@ class Main extends React.Component {
     state = {
         userId : 1,
         isLoading : true,
+        isSubmit : false,
         movieByAge : [],
         movieByOccp : []
     }
@@ -47,20 +48,29 @@ class Main extends React.Component {
 
 
     render(){
-        const {isLoading, userId} = this.state;
+        const {isSubmit, isLoading, userId} = this.state;
         return (
         <div className="main">
-            <form onSubmit = {this.handleSubmit}>
-                <input type="text" value={this.state.userId} onChange={this.handleChange} />
-                <input type="submit" />
-            </form>
             { isLoading ?
                 <div>
-                    Loading
+                    <form onSubmit = {this.handleSubmit}>
+                        <input type="text" value={this.state.userId} onChange={this.handleChange} />
+                        <input type="submit" />
+                    </form>
                 </div>
             :
                 <div>
+                    <h1>
+                        Movie Ranking
+                    </h1>
+                    <h2>
+                        Movie Ranking By Age
+                    </h2>
                     <Movie list={this.state.movieByAge}/>
+                    <h2>
+                        Movie Ranking By Occupation
+                    </h2>
+                    <Movie list={this.state.movieByOccp}/>
                 </div>
             }
         </div>
