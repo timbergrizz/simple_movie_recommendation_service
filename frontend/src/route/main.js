@@ -76,11 +76,11 @@ class Main extends React.Component {
                         <div className="movieRank">
                             <div>
                                 <h2> Movie Ranking By Age </h2>
-                                <Movie list={this.state.movieByAge}/>
+                                <Movie list={this.state.movieByAge} type="Average"/>
                             </div>
                             <div>
                                 <h2> Movie Ranking By Occupation </h2>
-                                <Movie list={this.state.movieByOccp}/>
+                                <Movie list={this.state.movieByOccp} type="Average"/>
                             </div>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ class Main extends React.Component {
                         <h1>
                             Movie Recommendation
                         </h1>
-
+                        <Movie list={this.state.movieByOccp} type="Expected" />
                     </div>
                 }
 
