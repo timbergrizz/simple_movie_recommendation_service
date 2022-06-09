@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Movie from "../components/Movies.js"
+import "../css/main.css"
 
 class Main extends React.Component {
     state = {
@@ -52,25 +53,25 @@ class Main extends React.Component {
         return (
         <div className="main">
             { isLoading ?
-                <div>
+                <div className="userIdForm">
                     <form onSubmit = {this.handleSubmit}>
                         <input type="text" value={this.state.userId} onChange={this.handleChange} />
                         <input type="submit" />
                     </form>
                 </div>
             :
-                <div>
-                    <h1>
-                        Movie Ranking
-                    </h1>
-                    <h2>
-                        Movie Ranking By Age
-                    </h2>
-                    <Movie list={this.state.movieByAge}/>
-                    <h2>
-                        Movie Ranking By Occupation
-                    </h2>
-                    <Movie list={this.state.movieByOccp}/>
+                <div className="movieRecommend">
+                    <div>
+                        <h1> Movie Ranking </h1>
+                        <h2>
+                            Movie Ranking By Age
+                        </h2>
+                        <Movie list={this.state.movieByAge}/>
+                        <h2>
+                            Movie Ranking By Occupation
+                        </h2>
+                        <Movie list={this.state.movieByOccp}/>
+                    </div>
                 </div>
             }
         </div>
