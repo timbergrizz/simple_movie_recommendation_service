@@ -5,11 +5,14 @@ function Movie(props){
     console.log(props.list)
     const list = props.list
     return (
-        <div>
+        <div className="movieLists" >
         {list.map((elem) => {
             return (
                 <div>
-                    {elem.movieTitle}
+                    <h4> {elem.movieTitle}  </h4>
+                    <p>
+                        Average Rate : {elem.avgRate}
+                    </p>
                 </div>
             )
         })}

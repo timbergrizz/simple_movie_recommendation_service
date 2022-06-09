@@ -9,7 +9,8 @@ class Main extends React.Component {
         isLoading : true,
         isSubmit : false,
         movieByAge : [],
-        movieByOccp : []
+        movieByOccp : [],
+        isRanking : true
     }
 
     handleChange = (event) => {
@@ -46,10 +47,14 @@ class Main extends React.Component {
         }
     }
 
+    handleButton = async(event) => {
+        event.preventDefault()
+        this.setState({isRanking : !this.state.isRanking});
+    }
 
 
     render(){
-        const {isSubmit, isLoading, userId} = this.state;
+        const {isRanking, isSubmit, isLoading, userId} = this.state;
         return (
         <div className="main">
             { isLoading ?
@@ -60,19 +65,35 @@ class Main extends React.Component {
                     </form>
                 </div>
             :
-                <div className="movieRecommend">
+                <article className="movieList">
+                    <div className="buttons">
+                        <button type="button" onClick={this.handleButton}> Ranking / Recommend </button>
+                    </div>
+                {
+                    isRanking ?
                     <div>
                         <h1> Movie Ranking </h1>
-                        <h2>
-                            Movie Ranking By Age
-                        </h2>
-                        <Movie list={this.state.movieByAge}/>
-                        <h2>
-                            Movie Ranking By Occupation
-                        </h2>
-                        <Movie list={this.state.movieByOccp}/>
+                        <div className="movieRank">
+                            <div>
+                                <h2> Movie Ranking By Age </h2>
+                                <Movie list={this.state.movieByAge}/>
+                            </div>
+                            <div>
+                                <h2> Movie Ranking By Occupation </h2>
+                                <Movie list={this.state.movieByOccp}/>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    :
+                    <div className="movieRecommend">
+                        <h1>
+                            Movie Recommendation
+                        </h1>
+
+                    </div>
+                }
+
+                </article>
             }
         </div>
         )
